@@ -1,4 +1,4 @@
-package sorting.bubble_sort
+package algorithms.sorting.bubble_sort
 
 val INPUT_DATA = arrayOf(2,3,6,2,8,9,0,5,4,3,1,3,4,6,98,6,5,3,2,4,556,6,4,3,45,6,7,3,3,4,6,87,4,3,4)
 

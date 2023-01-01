@@ -22,6 +22,37 @@ class SinglyLinkedList {
         size++
     }
 
+    fun delete(element: Int){
+        if(head == null) throw RuntimeException("The list is empty")
+
+        if(size == 1 && head!!.value == element) {
+            head = null
+            size == 0
+            return
+        }
+
+        var pointer: LinkedListNode? = head
+
+        while (pointer!!.next != null){
+            if(pointer.next!!.value == element) {
+                pointer.next = pointer.next!!.next
+                size--
+                return
+            }
+            pointer = pointer.next
+        }
+    }
+
+    fun contains(element: Int): Boolean {
+        if(head == null) return false
+        var pointer: LinkedListNode? = head
+        while (pointer != null){
+            if(pointer.value == element) return true
+            pointer = pointer.next
+        }
+        return false
+    }
+
     fun size() = size
 
     fun reverseListByValue() {
@@ -84,6 +115,10 @@ class SinglyLinkedList {
         }
     }
 
+    fun merge(list: LinkedListNode){
+
+    }
+
     fun print() {
         var pointer: LinkedListNode? = head
 
@@ -116,4 +151,11 @@ fun main() {
     linkedList.reverseListLinksUsingRecursion()
     println("### REVERSE LIST USING RECURSION ####")
     linkedList.print()
+    println("")
+    println("### REMOVING NUMBER 43 ###")
+    linkedList.delete(43)
+    println("### SIZE AFTER REMOVING ###")
+    println(linkedList.size())
+    println("### CHECK IF LIST CONTAINS NUMBER 43 ###")
+    println(linkedList.contains(43))
 }

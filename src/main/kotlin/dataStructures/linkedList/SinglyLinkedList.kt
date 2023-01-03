@@ -65,9 +65,9 @@ class SinglyLinkedList {
 
         pointer = head
 
-        valuesList.asReversed().forEach { element ->
-            pointer?.value = element
-            pointer = pointer?.next
+        for(index in valuesList.lastIndex downTo 0) {
+            pointer!!.value = valuesList[index]
+            pointer = pointer.next
         }
     }
 

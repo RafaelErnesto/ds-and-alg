@@ -3,15 +3,15 @@ package dataStructures.tree
 class BinaryTreeTraversal {
 
     companion object {
-        fun preOrderTraversal() {
+        fun preOrderTraversal(tree: List<*>) {
 
         }
 
-        fun inOrderTraversal() {
+        fun inOrderTraversal(tree: List<*>) {
 
         }
 
-        fun postOrderTraversal() {
+        fun postOrderTraversal(tree: List<*>) {
 
         }
     }

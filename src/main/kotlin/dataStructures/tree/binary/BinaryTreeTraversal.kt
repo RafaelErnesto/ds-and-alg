@@ -1,4 +1,4 @@
-package dataStructures.tree
+package dataStructures.tree.binary
 
 class BinaryTreeTraversal {
 
@@ -20,7 +20,7 @@ class BinaryTreeTraversal {
         fun postOrderTraversal(tree: List<*>, index: Int = 1) {
             if (tree.size < index) return
             postOrderTraversal(tree, 2 * index)
-            postOrderTraversal(tree, 2 * index + 1)
+            postOrderTraversal (tree, 2 * index + 1)
             println(tree[index - 1])
         }
     }

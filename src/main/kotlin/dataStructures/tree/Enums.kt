@@ -1,5 +1,7 @@
 package dataStructures.tree
 
+import dataStructures.tree.binary.BinaryTreeTraversal
+
 enum class Traversals {
     PRE_ORDER {
         override fun exec(tree: List<*>) {

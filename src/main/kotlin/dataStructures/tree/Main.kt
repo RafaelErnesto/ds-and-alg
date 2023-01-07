@@ -1,7 +1,9 @@
 package dataStructures.tree
 
+import dataStructures.tree.binary.BinaryTreeArray
+
 fun main() {
-    val intBinaryTree = BinaryTree()
+    val intBinaryTree = BinaryTreeArray<Int>()
     for (i: Int in 1..7) {
         intBinaryTree.add(i)
     }

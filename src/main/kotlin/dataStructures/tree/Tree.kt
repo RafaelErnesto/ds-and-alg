@@ -6,4 +6,6 @@ interface Tree<T> {
     fun remove(element: T)
 
      fun traverse(traverse: Traversals)
+
+     fun print()
 }

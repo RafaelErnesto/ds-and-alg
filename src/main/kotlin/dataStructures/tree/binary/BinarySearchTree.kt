@@ -1,17 +1,14 @@
 package dataStructures.tree.binary
 
-import dataStructures.tree.Traversals
-
-class BinarySearchTree<T>(val tree: T): BinaryTree<T>() where T : BinaryTree<T> {
+class BinarySearchTree<T>: BinaryTreeArray<T>() {
     override fun add(element: T) {
-        tree.add(element)
+        var index: Int = 0
+        while(true){
+
+        }
     }
 
     override fun remove(element: T) {
         tree.remove(element)
-    }
-
-    override fun traverse(traverse: Traversals) {
-        tree.traverse(traverse)
     }
 }

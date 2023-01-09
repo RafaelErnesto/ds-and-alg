@@ -15,4 +15,8 @@ abstract class BinaryTree<T>: Tree<T> {
     override fun traverse(traverse: Traversals) {
         TODO("Not yet implemented")
     }
+
+    override fun print() {
+        TODO("Not yet implemented")
+    }
 }

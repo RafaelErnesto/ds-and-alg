@@ -7,7 +7,6 @@ open class BinaryTreeArray<T> : BinaryTree<T>() {
     override fun add(element: T) {
         tree.add(element)
     }
-
     override fun remove(element: T) {
         TODO("Not yet implemented")
     }

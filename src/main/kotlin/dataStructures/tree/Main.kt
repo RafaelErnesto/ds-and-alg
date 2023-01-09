@@ -7,6 +7,8 @@ fun main() {
     for (i: Int in 1..7) {
         intBinaryTree.add(i)
     }
+    val aux: Int = 0
+
     println("######## PRE ORDER ####################")
     intBinaryTree.traverse(Traversals.PRE_ORDER)
     println("######## IN ORDER ####################")

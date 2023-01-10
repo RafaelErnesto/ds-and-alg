@@ -23,32 +23,38 @@ class Heap {
     }
 
     private fun balance() {
-        var i = data.size
-        while (i > 1) {
-            if (i % 2 == 0) {
-                val parentIndex = (i / 2)
-                if (data[i - 1] > data[parentIndex - 1]) {
-                    val aux = data[parentIndex - 1]
-                    data[parentIndex - 1] = data[i - 1]
-                    data[i - 1] = aux
-                    i = parentIndex
-                } else {
-                    return
-                }
+        var currentIndex = data.size
+        while (currentIndex > 1) {
+            if (currentIndex % 2 == 0) {
+                currentIndex = processRightNode(currentIndex) ?: return
             } else {
-                val parentIndex = ((i - 1) / 2)
-                if (data[i - 1] > data[parentIndex - 1]) {
-                    val aux = data[parentIndex - 1]
-                    data[parentIndex - 1] = data[i - 1]
-                    data[i - 1] = aux
-                    i = parentIndex
-                } else {
-                    return
-                }
+               currentIndex = processLeftNode(currentIndex) ?: return
             }
         }
     }
-}
 
-// 0,1,2,3,4
-//[0,2,3,4,12]
+    private fun processLeftNode(currentIndex: Int): Int?{
+        val parentIndex = ((currentIndex - 1) / 2)
+        return if (data[currentIndex - 1] > data[parentIndex - 1]) {
+            swapValues(currentIndex, parentIndex)
+        } else {
+            null
+        }
+    }
+
+    private fun processRightNode(currentIndex: Int): Int? {
+        val parentIndex = (currentIndex / 2)
+        return if (data[currentIndex - 1] > data[parentIndex - 1]) {
+            swapValues(currentIndex, parentIndex)
+        } else {
+            null
+        }
+    }
+
+    private fun swapValues(currentIndex:Int, parentIndex: Int): Int {
+        val aux = data[parentIndex - 1]
+        data[parentIndex - 1] = data[currentIndex - 1]
+        data[currentIndex - 1] = aux
+        return parentIndex
+    }
+}

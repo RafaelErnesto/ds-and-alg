@@ -19,7 +19,34 @@ class Heap {
 
         data[0] = data.last()
         data.removeLast()
-        balance()
+        balanceAfterRemoval()
+    }
+
+    private fun balanceAfterRemoval() {
+        if (data.size <= 1) return
+
+        var currentIndex = 1
+        while ((2 * currentIndex + 1) < data.size) {
+
+            var leftChildIndex = 2 * currentIndex
+            var rightChildIndex = 2 * currentIndex + 1
+            var childIndexToCompare = 0
+
+            childIndexToCompare = if (data[leftChildIndex - 1] > data[rightChildIndex - 1]) {
+                leftChildIndex
+            } else {
+                rightChildIndex
+            }
+
+            if (data[currentIndex - 1] < data[childIndexToCompare - 1]) {
+                var aux = data[childIndexToCompare - 1]
+                data[childIndexToCompare - 1] = data[currentIndex - 1]
+                data[currentIndex - 1] = aux
+                currentIndex = childIndexToCompare
+            } else {
+                return
+            }
+        }
     }
 
     private fun balance() {
@@ -28,12 +55,12 @@ class Heap {
             if (currentIndex % 2 == 0) {
                 currentIndex = processRightNode(currentIndex) ?: return
             } else {
-               currentIndex = processLeftNode(currentIndex) ?: return
+                currentIndex = processLeftNode(currentIndex) ?: return
             }
         }
     }
 
-    private fun processLeftNode(currentIndex: Int): Int?{
+    private fun processLeftNode(currentIndex: Int): Int? {
         val parentIndex = ((currentIndex - 1) / 2)
         return if (data[currentIndex - 1] > data[parentIndex - 1]) {
             swapValues(currentIndex, parentIndex)
@@ -51,7 +78,7 @@ class Heap {
         }
     }
 
-    private fun swapValues(currentIndex:Int, parentIndex: Int): Int {
+    private fun swapValues(currentIndex: Int, parentIndex: Int): Int {
         val aux = data[parentIndex - 1]
         data[parentIndex - 1] = data[currentIndex - 1]
         data[currentIndex - 1] = aux

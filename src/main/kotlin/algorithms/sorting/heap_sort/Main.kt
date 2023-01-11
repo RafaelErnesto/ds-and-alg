@@ -10,6 +10,9 @@ fun main() {
     heap.print()
     println("#### REMOVE ELEMENT FROM HEAP ######")
     heap.remove()
-    println("#### PRINT HEAP AFTER REMOVAL ######")
+    println("#### PRINT HEAP AFTER FIRST REMOVAL ######")
+    heap.print()
+    heap.remove()
+    println("#### PRINT HEAP AFTER SECOND REMOVAL ######")
     heap.print()
 }

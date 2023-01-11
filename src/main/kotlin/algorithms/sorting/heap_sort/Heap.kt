@@ -15,7 +15,11 @@ class Heap {
     fun remove() {
         if (data.size == 0) return
 
-        if (data.size == 1) data.removeAt(0)
+        if (data.size == 1) {
+            data.removeAt(0)
+            return
+        }
+
 
         data[0] = data.last()
         data.removeLast()
@@ -25,24 +29,24 @@ class Heap {
     private fun balanceAfterRemoval() {
         if (data.size <= 1) return
 
-        var currentIndex = 1
-        while ((2 * currentIndex + 1) < data.size) {
+        var currentIndex = 0
+        while ((2 * currentIndex + 2) < data.size) {
 
-            var leftChildIndex = 2 * currentIndex
-            var rightChildIndex = 2 * currentIndex + 1
-            var childIndexToCompare = 0
+            var leftChildIndex = 2 * currentIndex + 1
+            var rightChildIndex = 2 * currentIndex + 2
+            var childToCompareIndex = 0
 
-            childIndexToCompare = if (data[leftChildIndex - 1] > data[rightChildIndex - 1]) {
+            childToCompareIndex = if (data[leftChildIndex] > data[rightChildIndex]) {
                 leftChildIndex
             } else {
                 rightChildIndex
             }
 
-            if (data[currentIndex - 1] < data[childIndexToCompare - 1]) {
-                var aux = data[childIndexToCompare - 1]
-                data[childIndexToCompare - 1] = data[currentIndex - 1]
-                data[currentIndex - 1] = aux
-                currentIndex = childIndexToCompare
+            if (data[currentIndex] < data[childToCompareIndex]) {
+                var aux = data[childToCompareIndex]
+                data[childToCompareIndex] = data[currentIndex]
+                data[currentIndex] = aux
+                currentIndex = childToCompareIndex
             } else {
                 return
             }

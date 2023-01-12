@@ -1,18 +1,6 @@
 package algorithms.sorting.heap_sort
 
 fun main() {
-    val heap = Heap()
-    for (i in 1..10){
-        heap.add(i)
-    }
-
-    println("#### PRINT ORIGINAL HEAP ######")
-    heap.print()
-    println("#### REMOVE ELEMENT FROM HEAP ######")
-    heap.remove()
-    println("#### PRINT HEAP AFTER FIRST REMOVAL ######")
-    heap.print()
-    heap.remove()
-    println("#### PRINT HEAP AFTER SECOND REMOVAL ######")
-    heap.print()
+    var sortedArray = HeapUtils.heapSort(arrayOf(1,2,3,5,5,4,6,11,20,10,10,8,9,7))
+    for (i in sortedArray) println(i)
 }

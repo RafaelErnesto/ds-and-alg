@@ -3,6 +3,7 @@ package algorithms.sorting.heap_sort
 class Heap {
     var data = mutableListOf<Int>()
 
+
     fun add(element: Int) {
         data.add(element)
         balance()
@@ -19,7 +20,6 @@ class Heap {
             data.removeAt(0)
             return
         }
-
 
         data[0] = data.last()
         data.removeLast()

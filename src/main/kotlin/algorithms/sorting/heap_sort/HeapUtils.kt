@@ -26,7 +26,7 @@ class HeapUtils {
 
         fun heapSort(data: Array<Int>): Array<Int> {
             var data = heapify(data)
-            for (index in data.size -1 downTo 0) {
+            for (index in data.size - 1 downTo 0) {
                 var temp = data[index]
                 data[index] = data[0]
                 data[0] = temp
@@ -54,11 +54,7 @@ class HeapUtils {
                 var rightChildIndex = 2 * currentIndex + 2
                 var childToCompareIndex = 0
 
-                childToCompareIndex = if (data[leftChildIndex] > data[rightChildIndex]) {
-                    leftChildIndex
-                } else {
-                    rightChildIndex
-                }
+                childToCompareIndex = getBiggestChild(data, leftChildIndex, rightChildIndex)
 
                 if (data[currentIndex] < data[childToCompareIndex]) {
                     var aux = data[childToCompareIndex]

@@ -5,6 +5,6 @@ fun main() {
     println("### ORIGINAL ARRAY ###")
     for (i in originalArray) println(i)
     println("### SORTING ARRAY ###")
-    var sortedArray = HeapUtils.heapSort(originalArray)
+    var sortedArray = HeapSort.heapSort(originalArray)
     for (i in sortedArray) println(i)
 }

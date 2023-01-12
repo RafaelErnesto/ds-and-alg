@@ -3,7 +3,6 @@ package algorithms.sorting.heap_sort
 class Heap {
     var data = mutableListOf<Int>()
 
-
     fun add(element: Int) {
         data.add(element)
         balance()

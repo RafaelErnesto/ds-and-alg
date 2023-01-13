@@ -14,7 +14,7 @@ class HeapSort {
                         swapValues(data, index, biggestChild)
                         balance(data, biggestChild)
                     }
-                } else if (leftChildIndex<= data.lastIndex) {
+                } else if (leftChildIndex <= data.lastIndex) {
                     if (data[index] < data[leftChildIndex]) {
                         swapValues(data, index, leftChildIndex)
                         balance(data, leftChildIndex)
@@ -31,7 +31,7 @@ class HeapSort {
                 var temp = heap[index]
                 heap[index] = heap[root]
                 heap[root] = temp
-                balance(heap, root, index)
+                balance(heap, root, index - 1)
             }
             return data
         }
@@ -49,19 +49,26 @@ class HeapSort {
             if (data.size <= 1) return
 
             var currentIndex = index
-            while ((2 * currentIndex + 2) <= arrayLastIndex) {
+            while (currentIndex <= arrayLastIndex) {
 
                 var leftChildIndex = 2 * currentIndex + 1
                 var rightChildIndex = 2 * currentIndex + 2
+                if(leftChildIndex <= arrayLastIndex && rightChildIndex <= arrayLastIndex) {
+                    var childToCompareIndex: Int = getBiggestChild(data, leftChildIndex, rightChildIndex)
 
-                var childToCompareIndex: Int = getBiggestChild(data, leftChildIndex, rightChildIndex)
-
-                if (data[currentIndex] < data[childToCompareIndex]) {
-                    swapValues(data, currentIndex, childToCompareIndex)
-                    currentIndex = childToCompareIndex
+                    if (data[currentIndex] < data[childToCompareIndex]) {
+                        swapValues(data, currentIndex, childToCompareIndex)
+                        currentIndex = childToCompareIndex
+                    } else {
+                        return
+                    }
+                } else if(leftChildIndex <= arrayLastIndex && data[currentIndex] < data[leftChildIndex]) {
+                    swapValues(data, currentIndex, leftChildIndex)
+                    currentIndex = leftChildIndex
                 } else {
                     return
                 }
+
             }
         }
     }

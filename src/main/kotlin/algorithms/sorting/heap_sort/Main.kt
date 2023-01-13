@@ -1,11 +1,20 @@
 package algorithms.sorting.heap_sort
 
-fun main() {
-    var originalArray = (1..10).toList().shuffled().toTypedArray()
-    println("### ORIGINAL ARRAY ###")
-    for (i in originalArray) println(i)
 
+fun main() {
+    val numberOfElements = 100000000
+    var originalArray = (0..numberOfElements).toList().shuffled().toTypedArray()
+
+
+    println("#### SORTING THE ARRAY #####")
     var sortedArray = HeapSort.heapSort(originalArray)
-    println("### SORTED ARRAY ###")
-    for (i in sortedArray) println(i)
+    println("### SORTING FINISHED ###")
+    println("#### VALIDATING #####")
+    for (i in 0..numberOfElements) {
+        if (sortedArray[i] != i) {
+            println("NOT VALID")
+            return
+        }
+    }
+    println("#### VALIDATION FINISHED #####")
 }

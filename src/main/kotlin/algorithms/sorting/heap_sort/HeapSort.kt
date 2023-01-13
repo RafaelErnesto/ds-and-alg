@@ -24,7 +24,7 @@ class HeapSort {
             return data
         }
 
-        fun heapSort(data: Array<Int>): Array<Int> {
+        fun execute(data: Array<Int>): Array<Int> {
             var heap = heapify(data)
             val root = 0
             for (index in heap.lastIndex downTo 0) {

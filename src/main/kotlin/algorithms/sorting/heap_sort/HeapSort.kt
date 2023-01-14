@@ -53,6 +53,7 @@ class HeapSort {
 
                 var leftChildIndex = 2 * currentIndex + 1
                 var rightChildIndex = 2 * currentIndex + 2
+
                 if(leftChildIndex <= arrayLastIndex && rightChildIndex <= arrayLastIndex) {
                     var childToCompareIndex: Int = getBiggestChild(data, leftChildIndex, rightChildIndex)
 

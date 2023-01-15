@@ -36,7 +36,10 @@ class AvlTree {
 
     }
 
-    fun print(){
-
+    fun printTree(node: Node? = root){
+        if(node == null) return
+        println(node.value)
+        printTree(node.left)
+        printTree(node.right)
     }
 }

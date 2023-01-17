@@ -6,5 +6,5 @@ fun main(){
         avl.add(i)
     }
 
-    avl.printTree()
+    avl.printPreOrderTree()
 }

@@ -36,10 +36,10 @@ class AvlTree {
 
     }
 
-    fun printTree(node: Node? = root){
+    fun printPreOrderTree(node: Node? = root){
         if(node == null) return
         println(node.value)
-        printTree(node.left)
-        printTree(node.right)
+        printPreOrderTree(node.left)
+        printPreOrderTree(node.right)
     }
 }

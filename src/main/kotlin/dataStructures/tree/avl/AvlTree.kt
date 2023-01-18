@@ -2,6 +2,7 @@ package dataStructures.tree.avl
 
 data class Node(
     var value: Int,
+    var height: Int = 0,
     var left: Node? = null,
     var right: Node? = null
 )

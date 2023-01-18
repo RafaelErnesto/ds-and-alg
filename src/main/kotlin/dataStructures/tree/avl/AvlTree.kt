@@ -9,26 +9,27 @@ data class Node(
 class AvlTree {
     private var root: Node? = null
 
-    fun add(element: Int) {
+    fun add(element: Int, node: Node? = root) {
         if(root == null) {
             root = Node(element)
             return
         }
 
-        var currentNode = root
-        while(currentNode != null) {
-            if(element < currentNode.value) {
-                if(currentNode.left != null) {
-                    currentNode = currentNode.left
-                } else {
-                    currentNode.left  = Node(element)
-                    return
-                }
-            } else  if(currentNode.right != null) {
-                currentNode = currentNode.right
-            } else {
-                currentNode.right  = Node(element)
+        if(element <= node!!.value){
+            if(node.left == null){
+                node.left = Node(element)
                 return
+            } else {
+                add(element, node.left)
+            }
+        }
+
+        if(element > node!!.value) {
+            if(node.right == null){
+                node.right = Node(element)
+                return
+            } else {
+                add(element, node.right)
             }
         }
     }

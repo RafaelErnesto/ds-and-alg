@@ -39,6 +39,12 @@ class AvlTree {
         return if (leftSubTreeHeight > rightSubTreeHeight) leftSubTreeHeight + 1 else rightSubTreeHeight + 1
     }
 
+    private fun balanceFactor(node: Node): Int{
+        val leftSubTreeHeight: Int = if(node.left != null) node.left!!.height else 0
+        val rightSubTreeHeight: Int = if(node.right != null) node.right!!.height else 0
+        return leftSubTreeHeight - rightSubTreeHeight
+    }
+
     fun remove(element: Int) {
 
     }

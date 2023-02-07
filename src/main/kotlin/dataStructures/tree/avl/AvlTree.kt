@@ -31,6 +31,16 @@ class AvlTree {
             }
         }
         node.height = calculateHeight(node)
+
+        if (balanceFactor(node) == 2 && balanceFactor(node.left) == 1){
+            return LLRotation(node)
+        } else if (balanceFactor(node) == 2 && balanceFactor(node.left) == -1){
+            return LRRotation(node)
+        } else if (balanceFactor(node) == -2 && balanceFactor(node.right) == -1){
+            return RRRotation(node)
+        } else if (balanceFactor(node) == -2 && balanceFactor(node.right) == 1){
+            return RLRotation(node)
+        }
     }
 
     private fun calculateHeight(node: Node): Int{
@@ -39,9 +49,9 @@ class AvlTree {
         return if (leftSubTreeHeight > rightSubTreeHeight) leftSubTreeHeight + 1 else rightSubTreeHeight + 1
     }
 
-    private fun balanceFactor(node: Node): Int{
-        val leftSubTreeHeight: Int = if(node.left != null) node.left!!.height else 0
-        val rightSubTreeHeight: Int = if(node.right != null) node.right!!.height else 0
+    private fun balanceFactor(node: Node?): Int{
+        val leftSubTreeHeight: Int = if(node?.left != null) node.left!!.height else 0
+        val rightSubTreeHeight: Int = if(node?.right != null) node.right!!.height else 0
         return leftSubTreeHeight - rightSubTreeHeight
     }
 

@@ -56,6 +56,9 @@ class AvlTree {
 
         leftChild!!.right = unbalancedNode
         unbalancedNode.left = leftRightChild
+
+        unbalancedNode.height = calculateHeight(unbalancedNode)
+        leftChild.height = calculateHeight(leftChild)
         return leftChild
     }
 

@@ -1,21 +1,21 @@
 package dataStructures.tree
 
-import dataStructures.tree.binary.BinaryTreeTraversal
+import dataStructures.tree.binary.RecursiveBinaryTreeTraversal
 
 enum class Traversals {
     PRE_ORDER {
         override fun exec(tree: List<*>) {
-            BinaryTreeTraversal.preOrderTraversal(tree)
+            RecursiveBinaryTreeTraversal.preOrderTraversal(tree)
         }
     },
     IN_ORDER {
         override fun exec(tree: List<*>) {
-            BinaryTreeTraversal.inOrderTraversal(tree)
+            RecursiveBinaryTreeTraversal.inOrderTraversal(tree)
         }
     },
     POST_ORDER {
         override fun exec(tree: List<*>) {
-            BinaryTreeTraversal.postOrderTraversal(tree)
+            RecursiveBinaryTreeTraversal.postOrderTraversal(tree)
         }
     };
 

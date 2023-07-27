@@ -1,6 +1,6 @@
 package dataStructures.tree.binary
 
-class BinaryTreeTraversal {
+class RecursiveBinaryTreeTraversal {
 
     companion object {
         fun preOrderTraversal(tree: List<*>, index: Int = 1) {

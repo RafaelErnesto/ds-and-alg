@@ -1,18 +1,20 @@
 package dataStructures.tree
 
-import dataStructures.tree.binary.BinaryTreeArray
+import dataStructures.tree.binary.BinaryTree
+import dataStructures.tree.binary.Node
+import dataStructures.tree.binary.TraverseMode
 
 fun main() {
-    val intBinaryTree = BinaryTreeArray<Int>()
-    for (i: Int in 1..7) {
-        intBinaryTree.add(i)
-    }
-    val aux: Int = 0
+    val binaryTree = BinaryTree()
+    binaryTree.add(Node(value = 5))
+    binaryTree.add(Node(value = 3))
+    binaryTree.add(Node(value = 2))
+    binaryTree.add(Node(value = 4))
+    binaryTree.add(Node(value = 7))
+    binaryTree.add(Node(value = 6))
+    binaryTree.add(Node(value = 8))
 
-    println("######## PRE ORDER ####################")
-    intBinaryTree.traverse(Traversals.PRE_ORDER)
-    println("######## IN ORDER ####################")
-    intBinaryTree.traverse(Traversals.IN_ORDER)
-    println("######## POST ORDER ####################")
-    intBinaryTree.traverse(Traversals.POST_ORDER)
+   // binaryTree.traverse(TraverseMode.IN_ORDER)
+    //binaryTree.traverse(TraverseMode.PRE_ORDER)
+    binaryTree.traverse(TraverseMode.POST_ORDER)
 }

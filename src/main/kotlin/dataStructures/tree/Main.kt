@@ -14,7 +14,8 @@ fun main() {
     binaryTree.add(Node(value = 6))
     binaryTree.add(Node(value = 8))
 
-   // binaryTree.traverse(TraverseMode.IN_ORDER)
+    // binaryTree.traverse(TraverseMode.IN_ORDER)
     //binaryTree.traverse(TraverseMode.PRE_ORDER)
-    binaryTree.traverse(TraverseMode.POST_ORDER)
+    //binaryTree.traverse(TraverseMode.POST_ORDER)
+    binaryTree.traverse(TraverseMode.DIAGONAL)
 }

@@ -66,7 +66,6 @@ class BinaryTree {
                     }
                 }
             }
-
             TraverseMode.PRE_ORDER -> {
                 println("##### PRINTING PRE ORDER #####")
                 if (root == null) return
@@ -92,7 +91,6 @@ class BinaryTree {
                     }
                 }
             }
-
             TraverseMode.POST_ORDER -> {
                 println("##### PRINTING POST ORDER #####")
                 if (root == null) return
@@ -129,9 +127,26 @@ class BinaryTree {
                     }
                 } while(stack.isNotEmpty())
             }
-
             TraverseMode.BORDER -> {}
-            TraverseMode.DIAGONAL -> {}
+            TraverseMode.DIAGONAL -> {
+                println("##### PRINTING DIAGONAL ######")
+                val queue = mutableListOf<Node>()
+                var temp: Node? = null
+                if (root == null) return
+
+                queue.add(root!!)
+
+                do {
+                    if(temp == null){
+                        if(queue.isEmpty()) return
+                        temp = queue.removeFirst()
+                    }
+
+                    println(temp.value)
+                    temp.left?.let { queue.add(it) }
+                    temp = temp.right
+                } while (true)
+            }
         }
     }
 

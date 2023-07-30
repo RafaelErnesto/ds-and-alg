@@ -5,7 +5,7 @@ enum class TraverseMode {
     PRE_ORDER,
     POST_ORDER,
     DIAGONAL,
-    BORDER
+    BOUNDARY
 }
 
 class BinaryTree {
@@ -127,7 +127,15 @@ class BinaryTree {
                     }
                 } while(stack.isNotEmpty())
             }
-            TraverseMode.BORDER -> {}
+            TraverseMode.BOUNDARY -> {
+                println("##### PRINTING BOUNDARY #####")
+                if(root == null) return
+
+                val queue = mutableListOf<Node>()
+
+                
+
+            }
             TraverseMode.DIAGONAL -> {
                 println("##### PRINTING DIAGONAL ######")
                 val queue = mutableListOf<Node>()
